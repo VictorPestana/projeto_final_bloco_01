@@ -19,8 +19,7 @@ export function main() {
     console.log("            2 - Listar Veículos                     ");
     console.log("            3 - Alugar Veículo                      ");
     console.log("            4 - Devolver Veículo                    ");
-    console.log("            5 - Deletar Veículo                   ");
-    console.log("            6 - Sair                                ");
+    console.log("            5 - Sair                                ");
     console.log("                                                     ");
     console.log("=====================================================");
     console.log("                                                     ");
@@ -73,7 +72,6 @@ export function main() {
         console.log("=== Alugar Veículo ===");
 
         idVeiculo = readlinesync.questionInt("Digite o ID do veículo para alugar: ");
-
         keyPress();
         break;
       case 4:
@@ -91,14 +89,7 @@ export function main() {
         sobre();
         process.exit(0);
         break;
-      case 5:
-        console.log(colors.fg.red);
-        console.log("=== Deleter Veículo ===");
 
-        idVeiculo = readlinesync.questionInt("Digite o ID do veículo para deletar: ");
-
-        keyPress();
-        break;
       default:
         console.log("Opção inválida, digite novamente!");
         break;
