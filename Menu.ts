@@ -38,7 +38,8 @@ export function main() {
     console.log("            4 - Devolver Veículo                    ");
     console.log("            5 - Deletar Veículo                   ");
     console.log("            6 - Lista de Veículo Alugados                      ");
-    console.log("            7 - Sair                                ");
+    console.log("            7 - Atualizar Veículo                      ");
+    console.log("            0 - Sair                                ");
     console.log("                                                     ");
     console.log("=====================================================");
     console.log("                                                     ");
@@ -151,6 +152,49 @@ export function main() {
         keyPress();
         break;
       case 7:
+        console.log(colors.fg.red);
+        console.log("=== Atualizar Veículo ===");
+
+        idVeiculo = readlinesync.questionInt("Digite o ID do veiculo para atualizar: ");
+        const veiculoParaAtualizar = veiculos.buscarNoArray(idVeiculo);
+
+        if (veiculoParaAtualizar != null) {
+          console.log("Digite a nova Marca/Modelo do Veículo: ");
+          marca = readlinesync.question("");
+
+          console.log("Digite a nova Cor do Veículo: ");
+          cor = readlinesync.question("");
+
+          console.log("Digite o novo Ano do Veículo: ");
+          ano = readlinesync.questionInt("");
+
+          let tipo = readlinesync.questionInt(
+            "Digite o tipo de veiculo (1 - Carro, 2 - Moto): "
+          );
+
+          switch (tipo) {
+            case 1:
+              console.log(
+                "Digite o novo Tipo de Combustível (Ex: Gasolina, Etanol, Diesel): "
+              );
+              tipoCombustivel = readlinesync.question("");
+              veiculos.atualizar(
+                new Carro(idVeiculo, tipo, marca, cor, ano, tipoCombustivel)
+              );
+              break;
+            case 2:
+              console.log("Digite a nova quantidade de Cilindradas: ");
+              cilindradas = readlinesync.questionInt("");
+              veiculos.atualizar(new Moto(idVeiculo, tipo, marca, cor, ano, cilindradas));
+              break;
+            default:
+              console.log("Tipo Inválido.");
+              break;
+          }
+        }
+        keyPress();
+        break;
+      case 0:
         console.log(colors.fg.red);
         console.log("=== Sair ===");
         console.log("\nSaindo...\n");
