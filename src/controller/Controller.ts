@@ -23,6 +23,21 @@ export class Controller implements Repository {
     }
   }
 
+  listarTodosStatus(veiculosAlugados: number[]): void {
+    if (this.listaVeiculos.length === 0) {
+      console.log("\nNenhum veículo cadastrado!");
+    } else {
+      this.listaVeiculos.forEach((veiculo) => {
+        const status = veiculosAlugados.includes(veiculo.idVeiculo)
+          ? "Alugado"
+          : "Disponível";
+        console.log(
+          `ID: ${veiculo.idVeiculo} | Modelo: ${veiculo.marca} | Cor: ${veiculo.cor} | Ano: ${veiculo.ano} | Status: ${status}`
+        );
+      });
+    }
+  }
+
   cadastrar(veiculo: Veiculos): void {
     this.listaVeiculos.push(veiculo);
     console.log("\nVeículo cadastrado com sucesso!");

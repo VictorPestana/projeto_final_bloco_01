@@ -37,7 +37,8 @@ export function main() {
     console.log("            3 - Alugar Veículo                      ");
     console.log("            4 - Devolver Veículo                    ");
     console.log("            5 - Deletar Veículo                   ");
-    console.log("            6 - Sair                                ");
+    console.log("            6 - Lista de Veículo Alugados                      ");
+    console.log("            7 - Sair                                ");
     console.log("                                                     ");
     console.log("=====================================================");
     console.log("                                                     ");
@@ -143,8 +144,13 @@ export function main() {
 
         keyPress();
         break;
-
       case 6:
+        console.log(colors.fg.red);
+        console.log("=== Listar Veículos Alugados ===");
+        veiculos.listarTodosStatus(veiculosAlugados);
+        keyPress();
+        break;
+      case 7:
         console.log(colors.fg.red);
         console.log("=== Sair ===");
         console.log("\nSaindo...\n");
