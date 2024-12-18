@@ -3,7 +3,7 @@ import { colors } from "./util/colors";
 
 export function main() {
   let opcao, idVeiculo, ano, cilindradas: number;
-  let marca, nomeCLiente, placa, cor, tipoCombustivel: string;
+  let marca, nomeCliente, placa, cor, tipoCombustivel: string;
   const tiposVeiculos = ["Carro", "Moto"];
 
   while (true) {
